@@ -11,12 +11,15 @@ TOKEN = config.TOKEN
 def invokeSmartContractCode(SmartContractCodeName: str, functionName: str, args: str) -> str:
     api = "/api/v1/invokeSmartContractCode"
     url = "%s%s" % (BASE_URL, api)
-    data = {'SmartContractCodeName': SmartContractCodeName,
-            'functionName': functionName,
-            'args': args
+    data = {"SmartContractCodeName": SmartContractCodeName,
+            "functionName": functionName,
+            "args": args
             }
     params = json.dumps(data)  # 把data转为json字符串
-    res = HTTPClient.doPost(TOKEN, url, params)
+    print("-----params:"+params)
+    print("-----Token1:"+TOKEN)
+    print("-----url:"+url)
+    res = HTTPClient.doPost(TOKEN,url,params)
     # print(res)
     return res
 
@@ -24,12 +27,11 @@ def invokeSmartContractCode(SmartContractCodeName: str, functionName: str, args:
 def querySmartContractCode(SmartContractCodeName: str, functionName: str, args: str) -> str:
     api = "/api/v1/querySmartContractCode"
     url = "%s%s" % (BASE_URL, api)
-    paramsMap = {'args': args,
-                 'functionName': functionName,
-                 'SmartContractCodeName': SmartContractCodeName
+    paramsMap = {"args": args,
+                 "functionName": functionName,
+                 "SmartContractCodeName": SmartContractCodeName
                  }
-    # reqParams = HTTPClient.mapToGetString(paramsMap)
-    reqParams = json.dumps(paramsMap)
+    reqParams = HTTPClient.mapToGetString(paramsMap)
     print(reqParams)
     res = HTTPClient.doGet(TOKEN, url, reqParams)
     # print(res)# 然后存到数据库

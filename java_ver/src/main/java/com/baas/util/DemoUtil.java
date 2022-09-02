@@ -4,8 +4,8 @@ import com.google.gson.JsonParser;
 
 public class DemoUtil {
     public static void main(String[] args){
-//        StoreRecord2("{\"id\":\"iii\",\"runId\":\"rrr\",\"proposalId\":\"ppp\",\"characteristicsHash\":\"jio1j2903j12093j1203\",\"creator\":\"abc@ihep.ia.ac\",\"certTime\":168919820198300,\"uploadTime\":160910283019900,\"filename\":\"22222.nexus\"}");
-        QueryRecord2("{\"id\":\"iii\",\"runId\":\"rrr\",\"proposalId\":\"ppp\"}");
+        StoreRecord2("{\"id\":\"iii\",\"runId\":\"rrr\",\"proposalId\":\"ppp\",\"characteristicsHash\":\"jio1j2903j12093j1203\",\"creator\":\"abc@ihep.ia.ac\",\"certTime\":168919820198300,\"uploadTime\":160910283019900,\"filename\":\"22222.nexus\"}");
+//        QueryRecord2("{\"id\":\"iii\",\"runId\":\"rrr\",\"proposalId\":\"ppp\"}");
     }
 
     /**
