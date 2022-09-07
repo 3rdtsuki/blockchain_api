@@ -3,26 +3,16 @@ import requests
 
 # 发送get请求，将参数拼接在url后面
 def doGet(token: str, url: str, params: dict) -> str:
-    """
-    :param token:
-    :param url:
-    :param params: json字符串
-    :return:
-    """
-    headers = {"token": token
-               }
     reqParams = mapToGetString(params)
     url = url + "?" + reqParams
     print(url)
-    params["token"]=token
-    # data:json字符串，json：字典
+    params["token"]=token   # token不能写在header中，需作为参数
+    # requests.get的属性data：json字符串；json：字典
     result = requests.get(url=url,json=params)
     return result.text
 
 
 def doPost(token: str, url: str, params: dict):
-    headers = {"token": token
-               }
     print("-----Token2:" + token)
     print("-----params:", params)
     params["token"]=token
