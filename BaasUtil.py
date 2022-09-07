@@ -19,21 +19,19 @@ def invokeSmartContractCode(SmartContractCodeName: str, functionName: str, args:
     print("-----params:"+params)
     print("-----Token1:"+TOKEN)
     print("-----url:"+url)
-    res = HTTPClient.doPost(TOKEN,url,params)
-    # print(res)
+    res = HTTPClient.doPost(TOKEN,url,data)
     return res
 
 # 使用get查询
 def querySmartContractCode(SmartContractCodeName: str, functionName: str, args: str) -> str:
     api = "/api/v1/querySmartContractCode"
     url = "%s%s" % (BASE_URL, api)
-    paramsMap = {"args": args,
-                 "functionName": functionName,
-                 "SmartContractCodeName": SmartContractCodeName
-                 }
-    reqParams = HTTPClient.mapToGetString(paramsMap)
-    print(reqParams)
-    res = HTTPClient.doGet(TOKEN, url, reqParams)
+    data = {"SmartContractCodeName": SmartContractCodeName,
+            "functionName": functionName,
+            "args": args
+            }
+    print(data)
+    res = HTTPClient.doGet(TOKEN, url, data)
     # print(res)# 然后存到数据库
     return res
 
